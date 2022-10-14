@@ -1,4 +1,5 @@
 const sendButton = document.querySelector("#send");
+const ThankYouMessage = document.querySelector("#thanks_message");
 
 function sendMail () {
     let params = {
@@ -18,7 +19,8 @@ function sendMail () {
             document.querySelector("#email").value = "";
             document.querySelector("#message").value = "";
             console.log(response.status, response.text);
-            alert("bedankt voor uw bericht");
+            ThankYouMessage.value = "Thank you for your message";
+            //alert("bedankt voor uw bericht");
         })
         .catch((error) => {
             console.log(error);

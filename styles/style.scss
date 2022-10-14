@@ -10,7 +10,7 @@
 body{
     overflow-x: hidden;
     background: $bgDark;
-   background: linear-gradient(to right, $bgDark, rgb(0,0,0,));
+    background: linear-gradient(to right, $bgDark, rgb(0,0,0,));
 }
 
 .navbar{
@@ -23,6 +23,7 @@ body{
     position: sticky;
     top: 0;
     z-index: 998;
+    
 
     &__container{
         display: flex;
@@ -182,10 +183,10 @@ body{
 .hero{
    background: $bgDark;
    background: linear-gradient(to right, $bgDark, rgb(0,0,0,));
-   padding: 12.5rem 0;
+   //padding: 12.5rem 0;
    height: $screenHeight;
-   margin-top: $navbarHeight;
-   
+   background: #3a5595;
+   margin-top: -$navbarHeight;
    &__container{
     display: flex;
     flex-direction: column;
@@ -234,12 +235,10 @@ body{
 .webdev__skills{
     width: 100vw;
     height: $screenHeight;
-    
     padding-left: $marginScreenLeft;
     padding-right: $marginScreenRight;
     background: #ff8177;
     .webdev__skills__container{
-        margin-top: $navbarHeight;
         display: flex;
         color: $textWhite;
         justify-content: center;
@@ -249,13 +248,15 @@ body{
             display: flex;
             gap: 2vw;
             align-items: center;
+            margin-left: $marginScreenLeft;
             h1{
                 writing-mode:sideways-lr;
                 text-align: end;
                 margin: 0;
+                font-size: 2.4rem;
             }
             #web-dev-tekst{
-                width: 60ch;
+                max-width: 60ch;
                 font-size: 1rem;
                 line-height: 1.5rem;
                 
@@ -295,7 +296,6 @@ body{
                 justify-items: center;
                 align-items: center;
                 gap: 2rem;
-               
                  .icon{
                     display: grid;
                     justify-content: center;
@@ -312,7 +312,7 @@ body{
                     background-size: 1000%;
                     cursor: pointer;
                     z-index:5;
-                    transition: 1s;
+                    transition: 0.2s;
                     &:hover{
                         background-position: right;
                         scale: 105%;
@@ -333,10 +333,9 @@ body{
 // Projects
 .projects{
     .projects__container{
-        //background-color: #3a5595;
+        background-color: #3a5595;
         width: 100vw;
         height: $screenHeight;
-        margin-top: $navbarHeight;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -348,7 +347,6 @@ body{
 .more__skills{
     width: 100vw;
     height: $screenHeight;
-    margin-top: $navbarHeight;
     background: #ff8177;
     padding-left: $marginScreenLeft;
     padding-right: $marginScreenRight;
@@ -432,16 +430,17 @@ body{
             align-items: center;
             margin-bottom: 40vh;
             gap:2vw;
-            margin-left: 2vw;
+            margin-right: $marginScreenRight;
            h1{
                 writing-mode:vertical-rl;
                 margin: 0;
+                font-size: 2.4rem;
             }
             #more-tekst{
-                width: 60ch;
+                max-width: 60ch;
                 font-size: 1rem;
                 line-height: 1.5rem;
-                
+                margin-left: 2vw;
             }
         }
     }
@@ -452,10 +451,66 @@ body{
     .about__container{
         width: 100vw;
         height: $screenHeight;
-        margin-top: $navbarHeight;
         display: flex;
-        justify-content: center;
-        align-items: center;
         color: $textWhite;
+        background-color: #3a5595;
+        .about__container__contact{
+            width: 50%;
+            background-color: rgb(89, 112, 93);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            #contact-form{
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                h1{
+                    margin: 0;
+                    a{
+                        margin-left: -0.3rem;
+                    }
+                }
+                h4{
+                    margin: 0.5rem 0.1rem
+                }
+                h2{
+                    margin-bottom: 2rem;
+                }
+                label{
+                    margin-bottom: 0.3rem;
+                }
+                input{
+                    margin-bottom: 1rem;
+                    width: 18rem;
+                }
+                #message {
+                    overflow-y: scroll;
+                    width: 18rem;
+                    height: 20vh;
+                    margin-bottom: 0.3rem;
+                    resize: none;
+                }
+            }
+        }
+        .about__container__about{
+            z-index: 1;
+            width: 50%;
+            h1{
+                margin-top: 20vh;
+            }
+            p{
+                width: 50ch;
+                line-height: 1.5rem;
+            }
+            
+        }
+        .about__container__blob{
+            position: absolute;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
     }
 }
