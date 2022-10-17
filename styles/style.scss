@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './include-media.scss';
 
 *{
     scroll-behavior: smooth;
@@ -10,7 +11,7 @@
 body{
     overflow-x: hidden;
     background: $bgDark;
-    background: linear-gradient(to right, $bgDark, rgb(0,0,0,));
+    background: linear-gradient(to right, $bgDark, rgb(17, 16, 20));
 }
 
 .navbar{
@@ -35,6 +36,16 @@ body{
         margin: 0 auto;
         padding: 0 3.125rem;
 
+        @include media("<=desktop") {
+            display: flex;
+            justify-content: space-between;
+            height: $navbarHeight;
+            z-index: 1;
+            width: 100%;
+            max-width: 1300px;
+            padding: 0;
+        }
+
         #navbar-logo{
             background-color: #ff8177;
             background-image: linear-gradient(to top, rgb(2, 25, 138) 0%, rgb(130, 184, 246) 100%);
@@ -48,6 +59,54 @@ body{
             cursor: pointer;
             text-decoration: none;
             font-size: 2rem;
+
+            @include media("<=desktop"){
+                padding-left: 1.5rem;
+            }
+        }
+
+        &__toggle{
+            & .bar{
+                @include media("<=desktop"){
+                    width: 1.5rem;
+                    height: 3px;
+                    margin: 0.3rem auto;
+                    transition: all 0.3 ease-in-out;
+                    background: $textWhite;
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+            @include media("<=desktop"){
+                .bar:nth-child(1){
+                    border-radius: 50px 50px 0 0;
+                }
+                .bar:nth-child(2){
+                    width: 2rem;
+                    
+                }
+                .bar:nth-child(3){
+                    border-radius: 0 0 50px 50px;
+                }
+            }  
+        }
+        #mobile-menu{
+            @include media("<=desktop"){
+                position: absolute;
+                top: 20%;
+                right: 5%;
+                transform: translate(5%, 20%);
+
+                &.is-active .bar:nth-child(2){
+                    opacity: 0;
+                }
+                &.is-active .bar:nth-child(1){
+                    transform: translateY(0.5rem) rotate(45deg);
+                }
+                &.is-active .bar:nth-child(3){
+                    transform: translateY(-0.5rem) rotate(-45deg);
+                }
+            }
         }
 
         &__menu{
@@ -55,9 +114,32 @@ body{
             align-items: center;
             list-style: none;
 
+             @include media("<=desktop"){
+                display: grid;
+                grid-template-columns: auto;
+                margin: 0;
+                width: 100%;
+                position: absolute;
+                top: -62.5rem;
+                opacity: 1;
+                transition: all 0.5s ease;
+                z-index: -1;
+
+                &.active{
+                    background: $bgDark;
+                    top: 100%;
+                    opacity: 1;
+                    transition: all 0.5s ease;
+                    z-index: 99;
+                    height: 60vh;
+                    font-size: 1.6rem;
+                }
+             }
             &__item{
                 height: 5rem;
-
+                @include media("<=desktop"){
+                    width: 100%;
+                }
                 &__links{
                     color: $textWhite;
                     display: flex;
@@ -67,11 +149,18 @@ body{
                     width: 9rem;
                     height: 100%;
                     transition: all 0.3s ease;
-
+                    @include media("<=desktop"){
+                        text-align: center;
+                        padding: 2rem;
+                        width: 100%;
+                        display: table;
+                    }
                     &:hover{
                         color: rgb(66, 94, 238);
                         
                     }
+
+                    
                 }
             }
         }
@@ -82,93 +171,6 @@ body{
 .highlight {
         border-bottom: 4px solid rgb(2, 25, 138);
     }
-@media screen and (max-width: 960px){
-    .navbar__container{
-        display: flex;
-        justify-content: space-between;
-        height: $navbarHeight;
-        z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-        padding: 0;
-
-        #navbar-logo{
-            padding-left: 1.5rem;
-        }
-
-         &__toggle .bar{
-            width: 1.5rem;
-            height: 3px;
-            margin: 0.3rem auto;
-            transition: all 0.3 ease-in-out;
-            background: $textWhite;
-            display: block;
-            cursor: pointer;
-        }
-        .bar:nth-child(1){
-            border-radius: 50px 50px 0 0;
-        }
-        .bar:nth-child(2){
-            width: 2rem;
-            
-        }
-        .bar:nth-child(3){
-            border-radius: 0 0 50px 50px;
-        }
-
-        #mobile-menu{
-            position: absolute;
-            top: 20%;
-            right: 5%;
-            transform: translate(5%, 20%);
-
-            &.is-active .bar:nth-child(2){
-                opacity: 0;
-            }
-            &.is-active .bar:nth-child(1){
-                transform: translateY(0.5rem) rotate(45deg);
-            }
-             &.is-active .bar:nth-child(3){
-                transform: translateY(-0.5rem) rotate(-45deg);
-            }
-        }        
-
-        &__menu{
-            display: grid;
-            grid-template-columns: auto;
-            margin: 0;
-            width: 100%;
-            position: absolute;
-            top: -62.5rem;
-            opacity: 1;
-            transition: all 0.5s ease;
-            z-index: -1;
-
-            &.active{
-                background: $bgDark;
-                top: 100%;
-                opacity: 1;
-                transition: all 0.5s ease;
-                z-index: 99;
-                height: 60vh;
-                font-size: 1.6rem;
-            }
-
-            &__item{
-                width: 100%;
-
-                &__links{
-                    text-align: center;
-                    padding: 2rem;
-                    width: 100%;
-                    display: table;
-                }
-            }
-        }
-
-       
-    }
-}
 
 // Hero Section
 @keyframes fade {
@@ -185,7 +187,7 @@ body{
    background: linear-gradient(to right, $bgDark, rgb(0,0,0,));
    //padding: 12.5rem 0;
    height: $screenHeight;
-   background: #3a5595;
+   //background: #3a5595;
    margin-top: -$navbarHeight;
    &__container{
     display: flex;
@@ -197,11 +199,20 @@ body{
     height: 90%;
     text-align: center;
     padding: 1.9rem;
-
+    @include media(">phone", "<=425px") {
+        //background-color: rgb(128, 77, 46);
+        height: 100vh;
+    }
     &__heading{
         font-size: 6.25rem;
         margin-bottom: 1.5rem;
         color: $textWhite;
+        @include media("<1000px") {
+            font-size: 5rem;
+        }
+        @include media("<=tablet") {
+            font-size: 3.75rem;
+        }
     }
 
     &__description{
@@ -216,19 +227,16 @@ body{
         animation: fade 2s ease-in 1s;
         animation-delay: 2s;
         pointer-events: none;
-        
+       
+        @include media("<1000px") {
+            font-size: 3rem;
+        }
+        @include media("<=tablet") {
+            font-size: 2.5rem;
+        }
     }
    }
    
-}
-
-@media screen and (max-width: 768px) {
-    .hero__heading{
-        font-size: 3.75rem;
-    }
-    .hero__description{
-        font-size: 2.5rem;
-    }
 }
 
 //web dev skills
@@ -237,29 +245,49 @@ body{
     height: $screenHeight;
     padding-left: $marginScreenLeft;
     padding-right: $marginScreenRight;
-    background: #ff8177;
+    //background: #ff8177;
+    @include media(">phone", "<=425px") {
+            height: 200vh;
+        }
     .webdev__skills__container{
         display: flex;
         color: $textWhite;
         justify-content: center;
         gap: 10vw;
         padding-top: $paddingfromNavBar;
+        @include media(">phone", "<=425px") {
+            flex-direction: column;
+            gap: 30vh;
+        }
+        @include media("<1000px"){
+            gap: 5vw;
+        }
         .webdev__skills__container__left{
             display: flex;
             gap: 2vw;
             align-items: center;
             margin-left: $marginScreenLeft;
+            @include media(">phone", "<=425px") {
+                margin-bottom: 10vh;
+                gap: 8vw;
+                margin-right: $marginScreenRight;
+            }
             h1{
                 writing-mode:sideways-lr;
                 text-align: end;
                 margin: 0;
                 font-size: 2.4rem;
+                @include media("<1000px"){
+                    font-size: 2.2rem;
+                }
             }
             #web-dev-tekst{
                 max-width: 60ch;
                 font-size: 1rem;
                 line-height: 1.5rem;
-                
+                @include media("<1000px"){
+                    line-height: 1.4rem;
+                }
             }
         }
         .webdev__skills__container__icons{
@@ -273,7 +301,10 @@ body{
             background: $textWhite;
             position: relative;
             //color: $bgDark;
-            
+             @include media("<1000px"){
+                padding: 1.8rem;
+                font-size: 2rem;
+             }
             &::before{
                content: '';
                 border: 2px solid #ffffff;
@@ -296,6 +327,10 @@ body{
                 justify-items: center;
                 align-items: center;
                 gap: 2rem;
+                @include media(">phone", "<=425px"){
+                    grid-template-columns: auto auto;
+                    grid-template-rows: auto ;
+                }
                  .icon{
                     display: grid;
                     justify-content: center;
@@ -333,7 +368,7 @@ body{
 // Projects
 .projects{
     .projects__container{
-        background-color: #3a5595;
+       // background-color: #3a5595;
         width: 100vw;
         height: $screenHeight;
         display: flex;
@@ -347,19 +382,28 @@ body{
 .more__skills{
     width: 100vw;
     height: $screenHeight;
-    background: #ff8177;
+    //background: #ff8177;
     padding-left: $marginScreenLeft;
     padding-right: $marginScreenRight;
     display: flex;
     justify-content: center;
+    @include media(">phone", "<=425px"){
+        height: fit-content;
+    }
     .more__skills__container{
         display: flex;
         color: $textWhite;
         padding-top: $paddingfromNavBar;
+        @include media(">phone", "<=425px"){
+            flex-direction: column-reverse;
+        }
         .more__skills__container__carousel{
             width: 50vw;
             height: 80vh;
             position: relative;
+            @include media(">phone", "<=425px"){
+                width: 90vw;
+            }
             ul{
                 margin: 0;
                 padding: 0;
@@ -384,6 +428,21 @@ body{
                     bottom: 20%;
                     left: 52vw;
                     width:max-content;
+                    @include media(">phone", "<=425px"){
+                        left:0;
+                        bottom: 10%;
+                        h3{
+                            font-size: 1rem;
+                        }
+                        p{
+                            font-size: 0.9rem;
+                        }
+                    }
+                    @include media(">425px", "<1000px"){
+                        h3{
+                            font-size: 1.05rem;
+                        }
+                    }
                 }
             }
             .slide[data-active] {
@@ -431,16 +490,25 @@ body{
             margin-bottom: 40vh;
             gap:2vw;
             margin-right: $marginScreenRight;
+            @include media(">phone", "<=425px"){
+                margin-bottom: 0;
+            }
            h1{
                 writing-mode:vertical-rl;
                 margin: 0;
                 font-size: 2.4rem;
+                @include media("<1000px"){
+                    font-size: 2.2rem;
+                }
             }
             #more-tekst{
                 max-width: 60ch;
                 font-size: 1rem;
                 line-height: 1.5rem;
                 margin-left: 2vw;
+                @include media("<1000px"){
+                    line-height: 1.4rem;
+                }
             }
         }
     }
@@ -453,17 +521,32 @@ body{
         height: $screenHeight;
         display: flex;
         color: $textWhite;
-        background-color: #3a5595;
+        //background-color: #3a5595;
+        position:relative;
+        overflow: hidden;
+        @include media(">phone", "<=425px"){
+            flex-direction: column;
+            height: 200vh;
+        }
         .about__container__contact{
             width: 50%;
-            background-color: rgb(89, 112, 93);
+            //background-color: rgb(89, 112, 93);
             display: flex;
             justify-content: center;
             align-items: center;
+            @include media(">phone", "<=425px"){
+                width: 100%;
+                height: 100vh;
+                
+            }
             #contact-form{
                 z-index: 1;
                 display: flex;
                 flex-direction: column;
+                
+                @include media(">425px", "<1000px"){
+                    margin-top: 2rem;
+                }
                 h1{
                     margin: 0;
                     a{
@@ -478,10 +561,16 @@ body{
                 }
                 label{
                     margin-bottom: 0.3rem;
+                    @include media(">phone", "<=425px"){
+                        margin-left: 5vw;
+                    }
                 }
                 input{
                     margin-bottom: 1rem;
                     width: 18rem;
+                    @include media(">phone", "<=425px"){
+                        align-self: center;
+                    }
                 }
                 #message {
                     overflow-y: scroll;
@@ -489,28 +578,43 @@ body{
                     height: 20vh;
                     margin-bottom: 0.3rem;
                     resize: none;
+                    @include media(">phone", "<=425px"){
+                        align-self: center;
+                    }
                 }
             }
         }
         .about__container__about{
             z-index: 1;
             width: 50%;
+            @include media(">phone", "<=425px"){
+                width: 100%;
+                height: 100vh;
+                margin-left: $marginScreenLeft;
+                margin-right: $marginScreenRight;
+            }
             h1{
                 margin-top: 20vh;
             }
             p{
                 width: 50ch;
                 line-height: 1.5rem;
+                @include media(">phone", "<=425px"){
+                    width: 37ch;
+                }
             }
             
         }
         .about__container__blob{
             position: absolute;
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
             z-index: 0;
+            margin-left: 40vw;
+            margin-top: 20vh;
+            overflow: hidden;
+            @include media(">phone", "<=425px"){
+                margin-left: 20vw;
+                margin-top: 80vh;
+            }
         }
     }
 }
