@@ -23,6 +23,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 998;
+  width: 100vw;
 }
 .navbar__container {
   display: flex;
@@ -42,6 +43,7 @@ body {
     width: 100%;
     max-width: 1300px;
     padding: 0;
+    align-self: flex-start;
   }
 }
 .navbar__container #navbar-logo {
@@ -217,10 +219,15 @@ body {
     font-size: 3.75rem;
   }
 }
+@media (max-width: 320px) {
+  .hero__container__heading {
+    font-size: 3rem;
+  }
+}
 .hero__container__description {
   font-size: 3.75rem;
-  background: #373B44; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #373b44; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4286f4, #373b44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -241,6 +248,11 @@ body {
     font-size: 2.5rem;
   }
 }
+@media (max-width: 320px) {
+  .hero__container__description {
+    font-size: 2rem;
+  }
+}
 
 .webdev__skills {
   width: 100vw;
@@ -248,9 +260,10 @@ body {
   padding-left: 5vw;
   padding-right: 5vw;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .webdev__skills {
     height: 200vh;
+    background: #ff8177;
   }
 }
 .webdev__skills .webdev__skills__container {
@@ -260,15 +273,15 @@ body {
   gap: 10vw;
   padding-top: 7rem;
 }
-@media (min-width: 321px) and (max-width: 425px) {
-  .webdev__skills .webdev__skills__container {
-    flex-direction: column;
-    gap: 30vh;
-  }
-}
 @media (max-width: 999px) {
   .webdev__skills .webdev__skills__container {
     gap: 5vw;
+  }
+}
+@media (max-width: 425px) {
+  .webdev__skills .webdev__skills__container {
+    flex-direction: column;
+    gap: 10vh;
   }
 }
 .webdev__skills .webdev__skills__container .webdev__skills__container__left {
@@ -277,11 +290,16 @@ body {
   align-items: center;
   margin-left: 5vw;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .webdev__skills .webdev__skills__container .webdev__skills__container__left {
     margin-bottom: 10vh;
     gap: 8vw;
     margin-right: 5vw;
+  }
+}
+@media (max-width: 320px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__left {
+    margin-top: 0vh;
   }
 }
 .webdev__skills .webdev__skills__container .webdev__skills__container__left h1 {
@@ -294,6 +312,11 @@ body {
 @media (max-width: 999px) {
   .webdev__skills .webdev__skills__container .webdev__skills__container__left h1 {
     font-size: 2.2rem;
+  }
+}
+@media (max-width: 320px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__left h1 {
+    font-size: 2rem;
   }
 }
 .webdev__skills .webdev__skills__container .webdev__skills__container__left #web-dev-tekst {
@@ -323,6 +346,18 @@ body {
     font-size: 2rem;
   }
 }
+@media (max-width: 425px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__icons {
+    padding: 1rem;
+    bottom: -20vh;
+    justify-content: center;
+  }
+}
+@media (max-width: 320px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__icons {
+    bottom: -5vh;
+  }
+}
 .webdev__skills .webdev__skills__container .webdev__skills__container__icons::before {
   content: "";
   border: 2px solid #ffffff;
@@ -343,10 +378,11 @@ body {
   align-items: center;
   gap: 2rem;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid {
     grid-template-columns: auto auto;
     grid-template-rows: auto;
+    gap: 1rem;
   }
 }
 .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid .icon {
@@ -366,13 +402,32 @@ body {
   z-index: 5;
   transition: 0.2s;
 }
-.webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid .icon:hover {
-  background-position: right;
-  scale: 105%;
+@media (max-width: 425px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid .icon {
+    font-size: 6rem;
+    height: 6rem;
+  }
+}
+@media (max-width: 320px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid .icon {
+    font-size: 4.5rem;
+    height: 4.5rem;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid .icon:hover {
+    background-position: right;
+    scale: 105%;
+  }
 }
 .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid #more_to_come {
   grid-column: span 2;
   font-size: 1.3rem;
+}
+@media (max-width: 320px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid #more_to_come {
+    font-size: 1rem;
+  }
 }
 
 .projects .projects__container {
@@ -382,6 +437,12 @@ body {
   justify-content: center;
   align-items: center;
   color: rgb(220, 220, 220);
+  text-align: center;
+}
+@media (max-width: 320px) {
+  .projects .projects__container {
+    font-size: 1rem;
+  }
 }
 
 .more__skills {
@@ -392,11 +453,10 @@ body {
   display: flex;
   justify-content: center;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .more__skills {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
+    background: #4286f4;
+    height: 200vh;
   }
 }
 .more__skills .more__skills__container {
@@ -404,7 +464,7 @@ body {
   color: rgb(220, 220, 220);
   padding-top: 7rem;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .more__skills .more__skills__container {
     flex-direction: column-reverse;
   }
@@ -414,9 +474,15 @@ body {
   height: 80vh;
   position: relative;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .more__skills .more__skills__container .more__skills__container__carousel {
+    top: -10vh;
     width: 90vw;
+  }
+}
+@media (max-width: 320px) {
+  .more__skills .more__skills__container .more__skills__container__carousel {
+    top: -14vh;
   }
 }
 .more__skills .more__skills__container .more__skills__container__carousel ul {
@@ -447,7 +513,12 @@ body {
   width: -moz-max-content;
   width: max-content;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (min-width: 426px) and (max-width: 999px) {
+  .more__skills .more__skills__container .more__skills__container__carousel .slide .description h3 {
+    font-size: 1.05rem;
+  }
+}
+@media (max-width: 425px) {
   .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
     left: 0;
     bottom: 10%;
@@ -459,9 +530,10 @@ body {
     font-size: 0.9rem;
   }
 }
-@media (min-width: 426px) and (max-width: 999px) {
-  .more__skills .more__skills__container .more__skills__container__carousel .slide .description h3 {
-    font-size: 1.05rem;
+@media (max-width: 320px) {
+  .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
+    max-width: 100%;
+    bottom: 5%;
   }
 }
 .more__skills .more__skills__container .more__skills__container__carousel .slide[data-active] {
@@ -503,9 +575,13 @@ body {
   gap: 2vw;
   margin-right: 5vw;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .more__skills .more__skills__container .more__skills__container__right {
-    margin-bottom: 0;
+    margin: 0;
+    position: absolute;
+    top: 430vh;
+    margin-left: 5vw;
+    margin-right: 7vw;
   }
 }
 .more__skills .more__skills__container .more__skills__container__right h1 {
@@ -519,11 +595,21 @@ body {
     font-size: 2.2rem;
   }
 }
+@media (max-width: 319px) {
+  .more__skills .more__skills__container .more__skills__container__right h1 {
+    font-size: 2rem;
+  }
+}
 .more__skills .more__skills__container .more__skills__container__right #more-tekst {
   max-width: 60ch;
   font-size: 1rem;
   line-height: 1.5rem;
   margin-left: 2vw;
+}
+@media (min-width: 321px) and (max-width: 425px) {
+  .more__skills .more__skills__container .more__skills__container__right #more-tekst {
+    max-width: 35ch;
+  }
 }
 @media (max-width: 999px) {
   .more__skills .more__skills__container .more__skills__container__right #more-tekst {
@@ -539,7 +625,7 @@ body {
   position: relative;
   overflow: hidden;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container {
     flex-direction: column;
     height: 200vh;
@@ -547,11 +633,12 @@ body {
 }
 .about .about__container .about__container__contact {
   width: 50%;
+  background-color: rgb(89, 112, 93);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container .about__container__contact {
     width: 100%;
     height: 100vh;
@@ -562,13 +649,23 @@ body {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 426px) and (max-width: 999px) {
+@media (max-width: 999px) {
   .about .about__container .about__container__contact #contact-form {
     margin-top: 2rem;
   }
 }
+@media (max-width: 320px) {
+  .about .about__container .about__container__contact #contact-form {
+    margin-top: 10vh;
+  }
+}
 .about .about__container .about__container__contact #contact-form h1 {
   margin: 0;
+}
+@media (max-width: 320px) {
+  .about .about__container .about__container__contact #contact-form h1 {
+    font-size: 1.6rem;
+  }
 }
 .about .about__container .about__container__contact #contact-form h1 a {
   margin-left: -0.3rem;
@@ -579,21 +676,38 @@ body {
 .about .about__container .about__container__contact #contact-form h2 {
   margin-bottom: 2rem;
 }
+@media (max-width: 320px) {
+  .about .about__container .about__container__contact #contact-form h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.8rem;
+  }
+}
 .about .about__container .about__container__contact #contact-form label {
   margin-bottom: 0.3rem;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container .about__container__contact #contact-form label {
     margin-left: 5vw;
+  }
+}
+@media (max-width: 320px) {
+  .about .about__container .about__container__contact #contact-form label {
+    font-size: 0.9rem;
+    margin-left: 1vw;
   }
 }
 .about .about__container .about__container__contact #contact-form input {
   margin-bottom: 1rem;
   width: 18rem;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container .about__container__contact #contact-form input {
     align-self: center;
+  }
+}
+@media (max-width: 320px) {
+  .about .about__container .about__container__contact #contact-form input {
+    font-size: 0.9rem;
   }
 }
 .about .about__container .about__container__contact #contact-form #message {
@@ -603,21 +717,27 @@ body {
   margin-bottom: 0.3rem;
   resize: none;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container .about__container__contact #contact-form #message {
     align-self: center;
+  }
+}
+@media (max-width: 320px) {
+  .about .about__container .about__container__contact #contact-form #message {
+    height: 18vh;
   }
 }
 .about .about__container .about__container__about {
   z-index: 1;
   width: 50%;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container .about__container__about {
     width: 100%;
     height: 100vh;
     margin-left: 5vw;
     margin-right: 5vw;
+    background-color: coral;
   }
 }
 .about .about__container .about__container__about h1 {
@@ -627,9 +747,9 @@ body {
   width: 50ch;
   line-height: 1.5rem;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container .about__container__about p {
-    width: 37ch;
+    max-width: 90vw;
   }
 }
 .about .about__container .about__container__blob {
@@ -639,9 +759,14 @@ body {
   margin-top: 20vh;
   overflow: hidden;
 }
-@media (min-width: 321px) and (max-width: 425px) {
+@media (max-width: 425px) {
   .about .about__container .about__container__blob {
     margin-left: 20vw;
     margin-top: 80vh;
+  }
+}
+@media (max-width: 320px) {
+  .about .about__container .about__container__blob {
+    margin-top: 65vh;
   }
 }/*# sourceMappingURL=style.css.map */
