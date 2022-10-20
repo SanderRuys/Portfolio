@@ -27,6 +27,10 @@ background: $bgDark;
 
 }
 
+.accent__words{
+    font-weight: 600;
+}
+
 .navbar {
     background-color: $bgDark;
     height: 5rem;
@@ -260,19 +264,19 @@ background: $bgDark;
     padding-right: $marginScreenRight;
     //background: #ff8177;
     @include media(">=1600px") {
-        background-color: rgb(99, 58, 66);
+        //background-color: rgb(99, 58, 66);
         padding-top: 10vh;
     }
     @include media(">tablet", "<=870px") {
-        background-color: rgb(99, 58, 66);
+        //background-color: rgb(99, 58, 66);
     }
     @include media("<=tablet") {
         height: fit-content;
-        background-color: rgb(106, 130, 132);
+        //background-color: rgb(106, 130, 132);
     }
     @include media("<=425px") {
         height: 200vh;
-        background: #ff8177;
+        //background: #ff8177;
     }
     .webdev__skills__container {
         display: flex;
@@ -321,7 +325,8 @@ background: $bgDark;
             }
             
             h1 {
-                writing-mode: sideways-lr;
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
                 text-align: end;
                 margin: 0;
                 font-size: 2.4rem;
@@ -479,14 +484,14 @@ background: $bgDark;
     display: flex;
     justify-content: center;
     @include media(">tablet", "<=870px") {
-        background-color: rgb(99, 87, 20);
+        //background-color: rgb(99, 87, 20);
     }
     @include media("<=tablet") {
-        background-color: rgb(135, 97, 50);
+        //background-color: rgb(135, 97, 50);
         height: fit-content;
     }
     @include media("<=425px") {
-        background: #4286f4;
+        //background: #4286f4;
         height: 200vh;
     }
     .more__skills__container {
@@ -718,7 +723,11 @@ background: $bgDark;
                        font-size: 1.6rem;
                     }
                     a {
-                        margin-left: -0.3rem;
+                        text-decoration: none;
+                        color: $textWhite;
+                        i{
+                            color: rgb(10, 102, 194);
+                        }
                     }
                 }
                 h4 {
@@ -780,7 +789,7 @@ background: $bgDark;
                 height: 100vh;
                 margin-left: $marginScreenLeft;
                 margin-right: $marginScreenRight;
-                background-color: coral;
+                //background-color: coral;
             }
             h1 {
                 margin-top: 20vh;
@@ -799,6 +808,10 @@ background: $bgDark;
                 }
                 @include media("<=425px") {
                     max-width: 90vw;
+                    margin-left: 5vw;
+                }
+                @include media("<=phone") {
+                    margin-left: 1vw;
                 }
                 
             }
@@ -821,4 +834,15 @@ background: $bgDark;
             }
         }
     }
+}
+
+.valid__input {
+    border-color: rgb(38, 130, 38);
+    border-style: solid;
+    border-width: 3px;
+}
+.invalid__input {
+    border-color:rgb(220, 39, 39);
+    border-style: solid;
+    border-width: 3px;
 }

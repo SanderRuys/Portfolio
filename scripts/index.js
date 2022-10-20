@@ -27,10 +27,22 @@ const highLightMenu = () => {
     })
     navLinks.forEach( li => {
         li.classList.remove("highlight");
-        if(li.classList.contains(currentSelected)) {
+        if(li.classList.contains(currentSelected) && !menuLinks.classList.contains("active")) {
             li.classList.add('highlight');
         }
     })
 }
 window.addEventListener("scroll", highLightMenu);
+window.addEventListener("click", highLightMenu);
 
+//close mobile menu when clicked 
+const hideMobileMenu = () => {
+    const menuBars = document.querySelector(".is-active");
+    if(window.innerWidth <= 1024 && menuBars) {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.remove('active');
+    }
+}
+
+menuLinks.addEventListener('click', hideMobileMenu);
+navLogo.addEventListener("click", hideMobileMenu);
