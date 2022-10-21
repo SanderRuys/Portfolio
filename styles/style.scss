@@ -689,6 +689,7 @@ background: $bgDark;
         display: flex;
         color: $textWhite;
         //background-color: #3a5595;
+        background-color: $bgDark;
         position: relative;
         overflow: hidden;
         @include media("<=700px") {

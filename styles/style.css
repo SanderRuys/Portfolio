@@ -766,6 +766,7 @@ body {
   height: 100vh;
   display: flex;
   color: rgb(220, 220, 220);
+  background-color: rgb(25, 25, 25);
   position: relative;
   overflow: hidden;
 }
