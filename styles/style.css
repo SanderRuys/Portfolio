@@ -340,9 +340,15 @@ body {
 }
 @media (max-width: 425px) {
   .webdev__skills .webdev__skills__container .webdev__skills__container__left {
-    margin-bottom: 10vh;
+    margin-top: 10vh;
     gap: 8vw;
     margin-right: 5vw;
+  }
+}
+@media (min-width: 321px) and (max-width: 360px) {
+  .webdev__skills .webdev__skills__container .webdev__skills__container__left {
+    margin-top: 5vh;
+    margin-bottom: -32vh;
   }
 }
 @media (max-width: 320px) {
@@ -419,7 +425,7 @@ body {
 @media (max-width: 425px) {
   .webdev__skills .webdev__skills__container .webdev__skills__container__icons {
     padding: 1rem;
-    bottom: -20vh;
+    bottom: -35vh;
     justify-content: center;
   }
 }
@@ -448,7 +454,7 @@ body {
   align-items: center;
   gap: 2rem;
 }
-@media (max-width: 425px) {
+@media (max-width: 550px) {
   .webdev__skills .webdev__skills__container .webdev__skills__container__icons .webdev__skills__container__icons__grid {
     grid-template-columns: auto auto;
     grid-template-rows: auto;
@@ -553,7 +559,8 @@ body {
 }
 .more__skills .more__skills__container .more__skills__container__carousel {
   width: 50vw;
-  height: 80vh;
+  max-height: 70vh;
+  aspect-ratio: 1/1;
   position: relative;
 }
 @media (min-width: 769px) and (max-width: 870px) {
@@ -600,8 +607,8 @@ body {
 }
 .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
   position: absolute;
-  bottom: 20%;
-  left: 52vw;
+  bottom: -10%;
+  left: 3.2vw;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -619,19 +626,22 @@ body {
 @media (min-width: 769px) and (max-width: 870px) {
   .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
     left: 0;
-    bottom: 15%;
   }
 }
-@media (max-width: 768px) {
+@media (min-width: 741px) and (max-width: 768px) {
+  .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
+    left: 3vw;
+  }
+}
+@media (max-width: 740px) {
   .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
     left: 0;
-    bottom: 0%;
   }
 }
 @media (max-width: 425px) {
   .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
     left: 0;
-    bottom: 10%;
+    bottom: -12%;
   }
   .more__skills .more__skills__container .more__skills__container__carousel .slide .description h3 {
     font-size: 1rem;
@@ -643,7 +653,7 @@ body {
 @media (max-width: 320px) {
   .more__skills .more__skills__container .more__skills__container__carousel .slide .description {
     max-width: 100%;
-    bottom: 5%;
+    bottom: -15%;
   }
 }
 .more__skills .more__skills__container .more__skills__container__carousel .slide[data-active] {
@@ -846,6 +856,7 @@ body {
 .about .about__container .about__container__contact #contact-form input {
   margin-bottom: 1rem;
   width: 18rem;
+  border-radius: 5px;
 }
 @media (max-width: 425px) {
   .about .about__container .about__container__contact #contact-form input {
@@ -863,6 +874,7 @@ body {
   height: 20vh;
   margin-bottom: 0.3rem;
   resize: none;
+  border-radius: 5px;
 }
 @media (max-width: 425px) {
   .about .about__container .about__container__contact #contact-form #message {
@@ -872,6 +884,31 @@ body {
 @media (max-width: 320px) {
   .about .about__container .about__container__contact #contact-form #message {
     height: 18vh;
+  }
+}
+.about .about__container .about__container__contact #contact-form #send {
+  background-image: linear-gradient(to top, rgb(2, 25, 138) 0%, rgb(130, 184, 246) 100%);
+  border: none;
+  border-radius: 5px;
+  height: 1.4rem;
+  color: rgb(220, 220, 220);
+  transition: 0.3s;
+}
+.about .about__container .about__container__contact #contact-form #send:hover {
+  background-image: linear-gradient(to top, rgb(2, 25, 138) 0%, rgb(2, 25, 138) 100%);
+}
+.about .about__container .about__container__contact #contact-form #send:active {
+  background-image: linear-gradient(to top, rgb(130, 184, 246) 0%, rgb(130, 184, 246) 100%);
+}
+@media (max-width: 425px) {
+  .about .about__container .about__container__contact #contact-form #thanks_message {
+    margin-left: 5vw;
+  }
+}
+@media (max-width: 320px) {
+  .about .about__container .about__container__contact #contact-form #thanks_message {
+    font-size: 0.9rem;
+    margin-left: 1vw;
   }
 }
 .about .about__container .about__container__about {
@@ -914,10 +951,14 @@ body {
     width: 33ch;
   }
 }
+@media (max-width: 550px) {
+  .about .about__container .about__container__about p {
+    max-width: 85vw;
+  }
+}
 @media (max-width: 425px) {
   .about .about__container .about__container__about p {
     max-width: 90vw;
-    margin-left: 5vw;
   }
 }
 @media (max-width: 320px) {
