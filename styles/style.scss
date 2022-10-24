@@ -8,6 +8,23 @@
     padding: 0;
     font-family: $mainFont;
 }
+
+//custom scrollbar on chrome
+::-webkit-scrollbar {
+    width: 1em;
+}
+::-webkit-scrollbar-track {
+    background-color: $bgDark;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(2, 25, 138);
+    background-color: rgb(130, 184, 246);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(2, 25, 138);
+}
+
 body {
     overflow-x:  hidden;
     @include media(">=1600px") {
